@@ -6,6 +6,8 @@
 
 ### - [ ] System prompt
 
+![Prompt render order](../assets/phase-2/01-prompt-render-order.svg)
+
 System prompt là một field riêng (`system="..."` trong API call), khác với user message. Claude treat nó như "instructions của boss" — priority cao hơn user message thường, persistent across turns trong cùng conversation. Dùng để: set persona, define constraints, output format rules, behavior boundaries.
 
 **Tại sao matter:** Một system prompt tốt loại bỏ 80% prompt engineering trong từng user message. Thay vì lặp "trả lời ngắn gọn, format markdown" mỗi turn, set 1 lần ở system prompt.
@@ -119,6 +121,8 @@ Bắt Claude output structured (JSON, YAML, CSV, custom format). Có 3 cách: (1
 ---
 
 ### - [ ] Prompt caching
+
+![Prompt caching cost flow](../assets/phase-2/02-prompt-caching-flow.svg)
 
 Cache prefix của prompt (system + tools + early messages) → request sau đọc cache, **rẻ 90%, nhanh 85%**. Cache key = exact bytes of prefix; thay đổi 1 ký tự ở đầu = invalidate toàn bộ.
 

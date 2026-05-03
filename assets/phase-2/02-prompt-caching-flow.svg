@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.7" fill="#475569" opacity="0.35"/>
+    </pattern>
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-pink" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-amber" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="hd-cyan" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#22d3ee" stop-opacity="0.40"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0.10"/></linearGradient>
+    <linearGradient id="hd-pink" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ec4899" stop-opacity="0.40"/><stop offset="100%" stop-color="#ec4899" stop-opacity="0.10"/></linearGradient>
+    <linearGradient id="hd-amber" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#fbbf24" stop-opacity="0.40"/><stop offset="100%" stop-color="#fbbf24" stop-opacity="0.10"/></linearGradient>
+  </defs>
+
+  <rect width="880" height="400" fill="#06080d"/>
+  <rect width="880" height="400" fill="url(#dotgrid)"/>
+
+  <text x="60" y="44" fill="#ffffff" font-size="15" font-weight="700">Prompt caching — write once, read many</text>
+  <text x="60" y="64" fill="#94a3b8" font-size="11.5" font-style="italic">First request writes cache (~1.25× cost). Subsequent requests within TTL read at ~0.10× cost. Break-even after 2 reads.</text>
+
+  <g transform="translate(60, 100)">
+    <rect width="380" height="220" rx="14" fill="#0c1220" stroke="#ec4899" stroke-width="2"/>
+    <rect width="380" height="36" rx="14" fill="url(#hd-pink)"/>
+    <rect y="22" width="380" height="14" fill="url(#hd-pink)"/>
+    <circle cx="16" cy="18" r="3.5" fill="#ec4899" filter="url(#glow-pink)"/>
+    <text x="28" y="22" fill="#fbcfe8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.10em">WITHOUT CACHING</text>
+    <g transform="translate(20, 60)">
+      <rect width="340" height="28" rx="6" fill="#1e293b"/>
+      <text x="10" y="18" fill="#fbcfe8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">Req 1</text>
+      <text x="60" y="18" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">10K tokens × $5/1M</text>
+      <text x="330" y="18" text-anchor="end" fill="#ec4899" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">$0.050</text>
+    </g>
+    <g transform="translate(20, 96)">
+      <rect width="340" height="28" rx="6" fill="#1e293b"/>
+      <text x="10" y="18" fill="#fbcfe8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">Req 2</text>
+      <text x="60" y="18" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">10K tokens × $5/1M</text>
+      <text x="330" y="18" text-anchor="end" fill="#ec4899" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">$0.050</text>
+    </g>
+    <g transform="translate(20, 132)">
+      <rect width="340" height="28" rx="6" fill="#1e293b"/>
+      <text x="10" y="18" fill="#fbcfe8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">Req 3</text>
+      <text x="60" y="18" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">10K tokens × $5/1M</text>
+      <text x="330" y="18" text-anchor="end" fill="#ec4899" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">$0.050</text>
+    </g>
+    <line x1="20" y1="178" x2="360" y2="178" stroke="#ec4899" stroke-width="1.4" stroke-opacity="0.4"/>
+    <text x="20" y="200" fill="#fbcfe8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="12" font-weight="600">3 requests total</text>
+    <text x="360" y="200" text-anchor="end" fill="#ec4899" font-family="ui-monospace, SFMono-Regular, monospace" font-size="14" font-weight="700" filter="url(#glow-pink)">$0.150</text>
+  </g>
+
+  <g transform="translate(480, 100)">
+    <rect width="340" height="220" rx="14" fill="#0c1220" stroke="#22d3ee" stroke-width="2.5"/>
+    <rect width="340" height="36" rx="14" fill="url(#hd-cyan)"/>
+    <rect y="22" width="340" height="14" fill="url(#hd-cyan)"/>
+    <circle cx="16" cy="18" r="3.5" fill="#22d3ee" filter="url(#glow-cyan)"/>
+    <text x="28" y="22" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.10em">WITH cache_control</text>
+    <g transform="translate(20, 60)">
+      <rect width="300" height="28" rx="6" fill="#1e293b"/>
+      <text x="10" y="18" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">Req 1</text>
+      <text x="60" y="18" fill="#fbbf24" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">cache write 1.25×</text>
+      <text x="290" y="18" text-anchor="end" fill="#fbbf24" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">$0.063</text>
+    </g>
+    <g transform="translate(20, 96)">
+      <rect width="300" height="28" rx="6" fill="#1e293b"/>
+      <text x="10" y="18" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">Req 2</text>
+      <text x="60" y="18" fill="#22d3ee" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">cache read 0.10×</text>
+      <text x="290" y="18" text-anchor="end" fill="#22d3ee" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">$0.005</text>
+    </g>
+    <g transform="translate(20, 132)">
+      <rect width="300" height="28" rx="6" fill="#1e293b"/>
+      <text x="10" y="18" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">Req 3</text>
+      <text x="60" y="18" fill="#22d3ee" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11">cache read 0.10×</text>
+      <text x="290" y="18" text-anchor="end" fill="#22d3ee" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">$0.005</text>
+    </g>
+    <line x1="20" y1="178" x2="320" y2="178" stroke="#22d3ee" stroke-width="1.4" stroke-opacity="0.4"/>
+    <text x="20" y="200" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="12" font-weight="600">3 requests total</text>
+    <text x="320" y="200" text-anchor="end" fill="#22d3ee" font-family="ui-monospace, SFMono-Regular, monospace" font-size="14" font-weight="700" filter="url(#glow-cyan)">$0.073</text>
+  </g>
+
+  <g transform="translate(60, 340)">
+    <rect width="800" height="40" rx="8" fill="#0c1220" stroke="#22d3ee" stroke-width="1.4"/>
+    <text x="14" y="18" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10" font-weight="700" letter-spacing="0.10em">SAVINGS</text>
+    <text x="86" y="18" fill="#22d3ee" font-family="ui-monospace, SFMono-Regular, monospace" font-size="14" font-weight="700">51% cheaper</text>
+    <text x="220" y="18" fill="#cbd5e1" font-size="11">(after just 3 requests; scales toward 90% as you accumulate cache reads)</text>
+    <text x="14" y="33" fill="#94a3b8" font-size="11">Verify with <tspan fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace">usage.cache_read_input_tokens</tspan> &gt; 0 on the second response.</text>
+  </g>
+
+  <text x="440" y="392" text-anchor="middle" fill="#475569" font-size="10" font-family="ui-monospace, SFMono-Regular, monospace" letter-spacing="0.08em">02 / PROMPTING · CACHING-FLOW</text>
+</svg>
