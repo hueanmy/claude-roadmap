@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.7" fill="#475569" opacity="0.35"/>
+    </pattern>
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-purple" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-amber" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-pink" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-green" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <rect width="880" height="400" fill="#06080d"/>
+  <rect width="880" height="400" fill="url(#dotgrid)"/>
+
+  <text x="60" y="44" fill="#ffffff" font-size="15" font-weight="700">Hooks — deterministic shell at lifecycle events</text>
+  <text x="60" y="64" fill="#94a3b8" font-size="11.5" font-style="italic">Configured in settings.json. Run by harness — not by Claude. Exit code controls flow (0 pass, 2 block).</text>
+
+  <g transform="translate(60, 110)">
+    <line x1="0" y1="40" x2="780" y2="40" stroke="#1e293b" stroke-width="1.4"/>
+
+    <g transform="translate(0, 0)">
+      <circle cx="40" cy="40" r="24" fill="#0c1220" stroke="#22c55e" stroke-width="2" filter="url(#glow-green)"/>
+      <text x="40" y="44" text-anchor="middle" fill="#22c55e" font-family="ui-monospace, SFMono-Regular, monospace" font-size="13" font-weight="700">▶</text>
+      <text x="40" y="86" text-anchor="middle" fill="#86efac" font-family="ui-monospace, SFMono-Regular, monospace" font-size="9.5" font-weight="600">SessionStart</text>
+      <text x="40" y="100" text-anchor="middle" fill="#94a3b8" font-size="9.5" font-style="italic">init</text>
+    </g>
+
+    <g transform="translate(150, 0)">
+      <circle cx="40" cy="40" r="24" fill="#0c1220" stroke="#22d3ee" stroke-width="2" filter="url(#glow-cyan)"/>
+      <text x="40" y="46" text-anchor="middle" fill="#22d3ee" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">Pre</text>
+      <text x="40" y="86" text-anchor="middle" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="9.5" font-weight="600">PreToolUse</text>
+      <text x="40" y="100" text-anchor="middle" fill="#94a3b8" font-size="9.5" font-style="italic">gate / approve</text>
+    </g>
+
+    <g transform="translate(300, 0)">
+      <circle cx="40" cy="40" r="24" fill="#0c1220" stroke="#fbbf24" stroke-width="2" filter="url(#glow-amber)"/>
+      <text x="40" y="46" text-anchor="middle" fill="#fbbf24" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">⚙</text>
+      <text x="40" y="86" text-anchor="middle" fill="#fde68a" font-family="ui-monospace, SFMono-Regular, monospace" font-size="9.5" font-weight="600">tool runs</text>
+      <text x="40" y="100" text-anchor="middle" fill="#94a3b8" font-size="9.5" font-style="italic">Edit/Bash/...</text>
+    </g>
+
+    <g transform="translate(450, 0)">
+      <circle cx="40" cy="40" r="24" fill="#0c1220" stroke="#a855f7" stroke-width="2" filter="url(#glow-purple)"/>
+      <text x="40" y="46" text-anchor="middle" fill="#a855f7" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">Post</text>
+      <text x="40" y="86" text-anchor="middle" fill="#e9d5ff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="9.5" font-weight="600">PostToolUse</text>
+      <text x="40" y="100" text-anchor="middle" fill="#94a3b8" font-size="9.5" font-style="italic">format / audit</text>
+    </g>
+
+    <g transform="translate(600, 0)">
+      <circle cx="40" cy="40" r="24" fill="#0c1220" stroke="#ec4899" stroke-width="2" filter="url(#glow-pink)"/>
+      <text x="40" y="46" text-anchor="middle" fill="#ec4899" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700">!</text>
+      <text x="40" y="86" text-anchor="middle" fill="#fbcfe8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="9.5" font-weight="600">Notification</text>
+      <text x="40" y="100" text-anchor="middle" fill="#94a3b8" font-size="9.5" font-style="italic">desktop alert</text>
+    </g>
+
+    <g transform="translate(720, 0)">
+      <circle cx="40" cy="40" r="24" fill="#0c1220" stroke="#94a3b8" stroke-width="2"/>
+      <text x="40" y="44" text-anchor="middle" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="13" font-weight="700">■</text>
+      <text x="40" y="86" text-anchor="middle" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="9.5" font-weight="600">Stop</text>
+      <text x="40" y="100" text-anchor="middle" fill="#94a3b8" font-size="9.5" font-style="italic">cleanup</text>
+    </g>
+  </g>
+
+  <g transform="translate(60, 250)">
+    <text x="0" y="0" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10" font-weight="600" letter-spacing="0.10em">5 HOOK TYPES</text>
+    <g transform="translate(0, 16)">
+      <rect width="150" height="46" rx="8" fill="#0c1220" stroke="#22d3ee" stroke-width="1.4"/>
+      <text x="14" y="20" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600">command</text>
+      <text x="14" y="36" fill="#94a3b8" font-size="10">shell exec</text>
+    </g>
+    <g transform="translate(160, 16)">
+      <rect width="150" height="46" rx="8" fill="#0c1220" stroke="#a855f7" stroke-width="1.4"/>
+      <text x="14" y="20" fill="#e9d5ff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600">http</text>
+      <text x="14" y="36" fill="#94a3b8" font-size="10">webhook POST</text>
+    </g>
+    <g transform="translate(320, 16)">
+      <rect width="150" height="46" rx="8" fill="#0c1220" stroke="#fbbf24" stroke-width="1.4"/>
+      <text x="14" y="20" fill="#fde68a" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600">mcp_tool</text>
+      <text x="14" y="36" fill="#94a3b8" font-size="10">call MCP server</text>
+    </g>
+    <g transform="translate(480, 16)">
+      <rect width="150" height="46" rx="8" fill="#0c1220" stroke="#ec4899" stroke-width="1.4"/>
+      <text x="14" y="20" fill="#fbcfe8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600">prompt</text>
+      <text x="14" y="36" fill="#94a3b8" font-size="10">LLM judge</text>
+    </g>
+    <g transform="translate(640, 16)">
+      <rect width="150" height="46" rx="8" fill="#0c1220" stroke="#22c55e" stroke-width="1.4"/>
+      <text x="14" y="20" fill="#86efac" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600">agent</text>
+      <text x="14" y="36" fill="#94a3b8" font-size="10">Claude subagent</text>
+    </g>
+  </g>
+
+  <g transform="translate(60, 340)">
+    <rect width="800" height="38" rx="8" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
+    <text x="14" y="16" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="9.5" font-weight="600" letter-spacing="0.10em">EXIT CODE SEMANTICS</text>
+    <text x="14" y="30" fill="#cbd5e1" font-size="11"><tspan fill="#22c55e" font-weight="700">0</tspan> = pass through · <tspan fill="#ec4899" font-weight="700">2</tspan> = block action + send stderr to Claude as feedback · <tspan fill="#a5f3fc" font-weight="700">JSON stdout</tspan> = structured allow/deny decision</text>
+  </g>
+
+  <text x="440" y="392" text-anchor="middle" fill="#475569" font-size="10" font-family="ui-monospace, SFMono-Regular, monospace" letter-spacing="0.08em">05 / CLAUDE-CODE · HOOKS-LIFECYCLE</text>
+</svg>

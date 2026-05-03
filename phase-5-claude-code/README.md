@@ -13,6 +13,8 @@ claude  # khởi động trong project bất kỳ
 
 ### - [ ] CLAUDE.md (memory file)
 
+![CLAUDE.md hierarchy](../assets/phase-5/01-claude-md-hierarchy.svg)
+
 File markdown ở root project (hoặc `~/.claude/CLAUDE.md` cho global). Auto-load mỗi session start. Define convention dự án: tech stack, code style, commands hay dùng, rules, anti-patterns.
 
 **Tại sao matter:** Không có CLAUDE.md = mỗi session bạn phải nhắc lại "dùng pytest, không dùng print, type hints required...". Có CLAUDE.md = Claude vào việc luôn, theo đúng convention.
@@ -47,6 +49,8 @@ Folder structure: `~/.claude/skills/<name>/SKILL.md` (hoặc project-level `.cla
 
 ### - [ ] Subagents
 
+![Subagent fan-out pattern](../assets/phase-5/03-subagent-pattern.svg)
+
 Spawn Claude khác (thường Haiku — rẻ hơn) cho subtask, save context của main agent. Pattern: main agent spawn subagent với task hẹp, subagent return kết quả, main agent tổng hợp.
 
 **Tại sao matter:** Main agent context có hạn. Search codebase, đọc 10 files, tổng hợp → tốn 50K tokens trong main context. Spawn subagent: sub đọc files, return summary 2K tokens → main giữ context cho task chính.
@@ -63,6 +67,8 @@ Spawn Claude khác (thường Haiku — rẻ hơn) cho subtask, save context c�
 ---
 
 ### - [ ] Hooks
+
+![Hooks lifecycle](../assets/phase-5/02-hooks-lifecycle.svg)
 
 Shell commands chạy tại lifecycle events (PreToolUse, PostToolUse, Stop, FileChanged...). Định nghĩa trong `settings.json`. **Deterministic** — không phụ thuộc Claude quyết định, harness của Claude Code chạy luôn.
 

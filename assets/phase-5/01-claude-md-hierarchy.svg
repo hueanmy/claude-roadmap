@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.7" fill="#475569" opacity="0.35"/>
+    </pattern>
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-purple" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-pink" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="hd-cyan" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#22d3ee" stop-opacity="0.40"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0.10"/></linearGradient>
+    <linearGradient id="hd-purple" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#a855f7" stop-opacity="0.40"/><stop offset="100%" stop-color="#a855f7" stop-opacity="0.10"/></linearGradient>
+    <linearGradient id="hd-pink" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ec4899" stop-opacity="0.40"/><stop offset="100%" stop-color="#ec4899" stop-opacity="0.10"/></linearGradient>
+  </defs>
+
+  <rect width="880" height="380" fill="#06080d"/>
+  <rect width="880" height="380" fill="url(#dotgrid)"/>
+
+  <text x="60" y="44" fill="#ffffff" font-size="15" font-weight="700">CLAUDE.md — 3 levels merge into session context</text>
+  <text x="60" y="64" fill="#94a3b8" font-size="11.5" font-style="italic">Loaded automatically on session start. Lower level overrides higher when there's conflict.</text>
+
+  <g transform="translate(60, 100)">
+    <rect width="760" height="68" rx="10" fill="#0c1220" stroke="#a855f7" stroke-width="2"/>
+    <rect width="760" height="26" rx="10" fill="url(#hd-purple)"/>
+    <rect y="14" width="760" height="12" fill="url(#hd-purple)"/>
+    <circle cx="14" cy="13" r="3" fill="#a855f7" filter="url(#glow-purple)"/>
+    <text x="26" y="17" fill="#e9d5ff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">1. ENTERPRISE (managed)</text>
+    <text x="660" y="17" text-anchor="end" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">/Library/Application Support/ClaudeCode/CLAUDE.md</text>
+    <text x="20" y="48" fill="#ffffff" font-size="12">Org-wide policies, security rules, mandatory tools — set by IT/admin.</text>
+    <text x="20" y="62" fill="#94a3b8" font-size="11">Cannot be overridden by user.</text>
+  </g>
+
+  <g transform="translate(60, 188)">
+    <rect width="760" height="68" rx="10" fill="#0c1220" stroke="#22d3ee" stroke-width="2"/>
+    <rect width="760" height="26" rx="10" fill="url(#hd-cyan)"/>
+    <rect y="14" width="760" height="12" fill="url(#hd-cyan)"/>
+    <circle cx="14" cy="13" r="3" fill="#22d3ee" filter="url(#glow-cyan)"/>
+    <text x="26" y="17" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">2. USER (global)</text>
+    <text x="660" y="17" text-anchor="end" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">~/.claude/CLAUDE.md</text>
+    <text x="20" y="48" fill="#ffffff" font-size="12">Personal preferences across all projects: language, code style, tools you always use.</text>
+    <text x="20" y="62" fill="#94a3b8" font-size="11">Loaded second — may override enterprise non-mandatory items.</text>
+  </g>
+
+  <g transform="translate(60, 276)">
+    <rect width="760" height="68" rx="10" fill="#0c1220" stroke="#ec4899" stroke-width="2.5" filter="url(#glow-pink)"/>
+    <rect width="760" height="68" rx="10" fill="#0c1220"/>
+    <rect width="760" height="68" rx="10" fill="none" stroke="#ec4899" stroke-width="2.5"/>
+    <rect width="760" height="26" rx="10" fill="url(#hd-pink)"/>
+    <rect y="14" width="760" height="12" fill="url(#hd-pink)"/>
+    <circle cx="14" cy="13" r="3" fill="#ec4899" filter="url(#glow-pink)"/>
+    <text x="26" y="17" fill="#fbcfe8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">3. PROJECT (most specific)</text>
+    <text x="660" y="17" text-anchor="end" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">./CLAUDE.md (in repo root)</text>
+    <text x="20" y="48" fill="#ffffff" font-size="12">Project conventions: tech stack, run commands, anti-patterns, where things live.</text>
+    <text x="20" y="62" fill="#94a3b8" font-size="11">Highest priority — overrides user/enterprise where they conflict.</text>
+  </g>
+
+  <text x="440" y="372" text-anchor="middle" fill="#475569" font-size="10" font-family="ui-monospace, SFMono-Regular, monospace" letter-spacing="0.08em">05 / CLAUDE-CODE · CLAUDE-MD-HIERARCHY</text>
+</svg>
