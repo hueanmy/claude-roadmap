@@ -3,6 +3,12 @@
 > Lộ trình học Claude từ zero đến production — 7 phases, kèm working examples chạy được.
 > Companion repo của [hueanmy.github.io/claude-roadmap.html](https://hueanmy.github.io/claude-roadmap.html).
 
+<a href="https://hueanmy.github.io/claude-roadmap.html">
+  <img src="./assets/roadmap-walkthrough.gif" alt="Claude Dev Roadmap walkthrough — 7 phases from foundation to production" width="100%"/>
+</a>
+
+<p align="center"><sub>↑ Click the GIF to open the interactive roadmap. Every node links to the matching section here.</sub></p>
+
 [Tiếng Việt](#tiếng-việt) · [English](#english)
 
 ---
