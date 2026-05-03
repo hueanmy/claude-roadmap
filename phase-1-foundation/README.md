@@ -38,19 +38,7 @@ Cả 3 đều là LLM API thương mại nhưng triết lý khác nhau. Anthropi
 
 ### - [ ] Context window
 
-```mermaid
-%%{init: {'themeVariables': {'fontFamily': 'monospace'}}}%%
-block-beta
-    columns 4
-    a["System prompt<br/>~2K tok"]:1
-    b["Tools<br/>~1K tok"]:1
-    c["Conversation history<br/>~500K tok"]:6
-    d["Output<br/>~64K tok"]:2
-    style a fill:#1e3a8a,color:#fff
-    style b fill:#7c3aed,color:#fff
-    style c fill:#0891b2,color:#fff
-    style d fill:#16a34a,color:#fff
-```
+![Context window allocation](../assets/phase-1/02-context-window.svg)
 
 **Context window** = giới hạn tổng token (input + output) trong một request. Opus 4.7 / Sonnet 4.6: **1M tokens** (≈ 750K từ tiếng Anh, ≈ 5000 trang sách). Haiku 4.5: 200K. Khi vượt limit → 400 error `context_length_exceeded`.
 
@@ -89,19 +77,7 @@ Bill theo **input tokens + output tokens + cache** (cache rẻ hơn 90%, cache w
 
 ### - [ ] Opus / Sonnet / Haiku — chọn model nào
 
-```mermaid
-flowchart TD
-    A[Task tới] --> B{Cần multi-step<br/>reasoning / agentic?}
-    B -- Yes --> C{Quality > cost?}
-    B -- No --> D{Cần output<br/>chất lượng cao,<br/>balanced?}
-    C -- Yes --> O[Opus 4.7<br/>$5/$25]
-    C -- No --> S[Sonnet 4.6<br/>$3/$15]
-    D -- Yes --> S
-    D -- No --> H[Haiku 4.5<br/>$1/$5]
-    style O fill:#7c3aed,color:#fff
-    style S fill:#0891b2,color:#fff
-    style H fill:#16a34a,color:#fff
-```
+![Model selection ladder](../assets/phase-1/03-model-selection.svg)
 
 Anthropic naming convention: **Opus** = mạnh nhất + đắt nhất, **Sonnet** = balanced (mặc định cho production), **Haiku** = nhanh + rẻ nhất. Không phải lúc nào Opus cũng tốt hơn — cho task đơn giản (classify, extract), Haiku output quality tương đương Opus mà rẻ 5-25 lần.
 
