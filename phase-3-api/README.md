@@ -40,6 +40,8 @@ Endpoint duy nhất cho mọi request: `POST /v1/messages`. Tools, vision, struc
 
 ### - [ ] Streaming
 
+![Streaming SSE flow](../assets/phase-3/01-streaming-flow.svg)
+
 `client.messages.stream(...)` trả về Server-Sent Events thay vì wait full response. Token stream về như typing → UX real-time cho chat. **Bắt buộc khi `max_tokens > ~16K`** vì non-stream sẽ hit HTTP timeout.
 
 **Tại sao matter:** Non-stream với `max_tokens=64000` sẽ timeout sau 600s — request tốn rồi nhưng user không nhận được gì. Stream xử lý case này tự nhiên: gửi token ngay khi sinh ra, không có "wait for completion".
@@ -56,6 +58,8 @@ Endpoint duy nhất cho mọi request: `POST /v1/messages`. Tools, vision, struc
 ---
 
 ### - [ ] Batch API
+
+![Batch API lifecycle](../assets/phase-3/02-batch-lifecycle.svg)
 
 `POST /v1/messages/batches` — async, **50% giá**, cho job không cần realtime. Up to 100K requests / 256MB per batch. Most batches done within 1h, max 24h. Results available 29 ngày.
 
