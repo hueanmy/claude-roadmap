@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.7" fill="#475569" opacity="0.35"/>
+    </pattern>
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-amber" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-green" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/></marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#fbbf24"/></marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#22c55e"/></marker>
+  </defs>
+
+  <rect width="880" height="380" fill="#06080d"/>
+  <rect width="880" height="380" fill="url(#dotgrid)"/>
+
+  <text x="60" y="44" fill="#ffffff" font-size="15" font-weight="700">Agentic loop — until Claude says it's done</text>
+  <text x="60" y="64" fill="#94a3b8" font-size="11.5" font-style="italic">Engine of every agent. All frameworks (LangChain, LlamaIndex…) are wrappers around this loop.</text>
+
+  <g transform="translate(80, 160)">
+    <rect width="200" height="80" rx="14" fill="#0c1220" stroke="#22d3ee" stroke-width="2.5" filter="url(#glow-cyan)"/>
+    <circle cx="16" cy="22" r="3" fill="#22d3ee"/>
+    <text x="28" y="26" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">CALL API</text>
+    <text x="100" y="48" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="600">messages.create</text>
+    <text x="100" y="64" text-anchor="middle" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">tools=[...], messages=[...]</text>
+  </g>
+
+  <g transform="translate(360, 140)">
+    <polygon points="0,60 60,0 240,0 300,60 240,120 60,120" fill="#0c1220" stroke="#fbbf24" stroke-width="2" filter="url(#glow-amber)"/>
+    <text x="150" y="48" text-anchor="middle" fill="#fde68a" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">CHECK STOP_REASON</text>
+    <text x="150" y="72" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="600">tool_use ?</text>
+    <text x="150" y="92" text-anchor="middle" fill="#94a3b8" font-size="11" font-style="italic">if yes → run tools</text>
+  </g>
+
+  <g transform="translate(720, 160)">
+    <rect width="140" height="80" rx="14" fill="#0c1220" stroke="#22c55e" stroke-width="2" filter="url(#glow-green)"/>
+    <circle cx="16" cy="22" r="3" fill="#22c55e"/>
+    <text x="28" y="26" fill="#86efac" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">EXIT</text>
+    <text x="70" y="50" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">end_turn</text>
+    <text x="70" y="66" text-anchor="middle" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">return final text</text>
+  </g>
+
+  <line x1="280" y1="200" x2="356" y2="200" stroke="#22d3ee" stroke-width="1.6" marker-end="url(#arr-cyan)"/>
+
+  <line x1="660" y1="200" x2="716" y2="200" stroke="#22c55e" stroke-width="1.6" marker-end="url(#arr-green)"/>
+  <text x="688" y="190" text-anchor="middle" fill="#22c55e" font-size="10" font-style="italic">no</text>
+
+  <g transform="translate(360, 280)">
+    <rect width="300" height="60" rx="14" fill="#0c1220" stroke="#fbbf24" stroke-width="1.6"/>
+    <circle cx="16" cy="22" r="3" fill="#fbbf24"/>
+    <text x="28" y="26" fill="#fde68a" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">EXECUTE TOOL_USE</text>
+    <text x="150" y="46" text-anchor="middle" fill="#ffffff" font-size="13">run_tool(name, input)</text>
+    <text x="150" y="58" text-anchor="middle" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">append tool_result to messages</text>
+  </g>
+
+  <path d="M510,260 L510,280" stroke="#fbbf24" stroke-width="1.6" marker-end="url(#arr-amber)" fill="none"/>
+  <text x="540" y="272" fill="#fbbf24" font-size="10" font-style="italic">yes</text>
+
+  <path d="M360,310 Q200,310 180,250" stroke="#fbbf24" stroke-width="1.6" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-amber)"/>
+  <text x="240" y="334" fill="#fbbf24" font-size="10.5" font-style="italic">loop back, next iteration</text>
+
+  <g transform="translate(60, 100)">
+    <rect width="200" height="34" rx="8" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
+    <text x="14" y="22" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600">while True:</text>
+  </g>
+
+  <g transform="translate(60, 348)">
+    <rect width="800" height="22" rx="6" fill="#0c1220" stroke="#1e293b" stroke-width="1"/>
+    <text x="14" y="15" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10" font-weight="600" letter-spacing="0.10em">SAFETY:</text>
+    <text x="80" y="15" fill="#cbd5e1" font-size="10.5">cap iterations (10-20) to prevent infinite loops · cache prefix (system + tools) — stable across iterations</text>
+  </g>
+
+  <text x="440" y="372" text-anchor="middle" fill="#475569" font-size="10" font-family="ui-monospace, SFMono-Regular, monospace" letter-spacing="0.08em">04 / TOOLS-AGENTS · AGENTIC-LOOP</text>
+</svg>

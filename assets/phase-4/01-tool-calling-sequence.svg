@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.7" fill="#475569" opacity="0.35"/>
+    </pattern>
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-purple" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-amber" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow-pink" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/></marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#fbbf24"/></marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#a855f7"/></marker>
+    <marker id="arr-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#ec4899"/></marker>
+  </defs>
+
+  <rect width="880" height="420" fill="#06080d"/>
+  <rect width="880" height="420" fill="url(#dotgrid)"/>
+
+  <text x="60" y="44" fill="#ffffff" font-size="15" font-weight="700">Tool calling — the canonical 4-step flow</text>
+  <text x="60" y="64" fill="#94a3b8" font-size="11.5" font-style="italic">Claude never executes tools. It returns tool_use blocks; you run them, send tool_result back.</text>
+
+  <g transform="translate(60, 100)">
+    <rect width="180" height="60" rx="10" fill="#0c1220" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="16" cy="18" r="3" fill="#22d3ee" filter="url(#glow-cyan)"/>
+    <text x="28" y="22" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">YOUR APP</text>
+    <text x="16" y="44" fill="#ffffff" font-size="12">Builds request:</text>
+    <text x="16" y="54" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">prompt + tools schema</text>
+  </g>
+
+  <g transform="translate(640, 100)">
+    <rect width="180" height="60" rx="10" fill="#0c1220" stroke="#a855f7" stroke-width="2"/>
+    <circle cx="16" cy="18" r="3" fill="#a855f7" filter="url(#glow-purple)"/>
+    <text x="28" y="22" fill="#e9d5ff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">CLAUDE</text>
+    <text x="16" y="44" fill="#ffffff" font-size="12">Decides to call tool</text>
+    <text x="16" y="54" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">stop_reason: tool_use</text>
+  </g>
+
+  <g>
+    <line x1="240" y1="130" x2="640" y2="130" stroke="#22d3ee" stroke-width="1.6" marker-end="url(#arr-cyan)"/>
+    <text x="440" y="118" text-anchor="middle" fill="#22d3ee" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600">1. messages.create({prompt, tools})</text>
+    <circle r="4" fill="#22d3ee" filter="url(#glow-cyan)">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M240,130 L640,130"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g transform="translate(60, 195)">
+    <rect width="180" height="60" rx="10" fill="#0c1220" stroke="#fbbf24" stroke-width="2"/>
+    <circle cx="16" cy="18" r="3" fill="#fbbf24" filter="url(#glow-amber)"/>
+    <text x="28" y="22" fill="#fde68a" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">YOUR APP</text>
+    <text x="16" y="44" fill="#ffffff" font-size="12">Executes the tool</text>
+    <text x="16" y="54" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">get_weather(loc=...)</text>
+  </g>
+
+  <g>
+    <line x1="640" y1="225" x2="240" y2="225" stroke="#fbbf24" stroke-width="1.6" marker-end="url(#arr-amber)"/>
+    <text x="440" y="213" text-anchor="middle" fill="#fbbf24" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600">2. response.content = [tool_use{name, input, id}]</text>
+    <circle r="4" fill="#fbbf24" filter="url(#glow-amber)">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="0.8s" path="M640,225 L240,225"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g transform="translate(640, 195)">
+    <rect width="180" height="60" rx="10" fill="#0c1220" stroke="#a855f7" stroke-width="2"/>
+    <circle cx="16" cy="18" r="3" fill="#a855f7" filter="url(#glow-purple)"/>
+    <text x="28" y="22" fill="#e9d5ff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">CLAUDE</text>
+    <text x="16" y="44" fill="#ffffff" font-size="12">Receives result</text>
+    <text x="16" y="54" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">synthesizes answer</text>
+  </g>
+
+  <g>
+    <line x1="240" y1="290" x2="640" y2="290" stroke="#a855f7" stroke-width="1.6" marker-end="url(#arr-purple)"/>
+    <text x="440" y="278" text-anchor="middle" fill="#a855f7" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600">3. append tool_result, call API again</text>
+    <circle r="4" fill="#a855f7" filter="url(#glow-purple)">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="1.6s" path="M240,290 L640,290"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="1.6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g transform="translate(60, 320)">
+    <rect width="180" height="60" rx="10" fill="#0c1220" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="16" cy="18" r="3" fill="#22d3ee" filter="url(#glow-cyan)"/>
+    <text x="28" y="22" fill="#a5f3fc" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">YOUR APP</text>
+    <text x="16" y="44" fill="#ffffff" font-size="12">Final answer to user</text>
+    <text x="16" y="54" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">stop_reason: end_turn</text>
+  </g>
+
+  <g>
+    <line x1="640" y1="350" x2="240" y2="350" stroke="#ec4899" stroke-width="1.6" marker-end="url(#arr-pink)"/>
+    <text x="440" y="338" text-anchor="middle" fill="#ec4899" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600">4. response.content = [text{...}]</text>
+    <circle r="4" fill="#ec4899" filter="url(#glow-pink)">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="2.4s" path="M640,350 L240,350"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="3s" begin="2.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g transform="translate(640, 320)">
+    <rect width="180" height="60" rx="10" fill="#0c1220" stroke="#a855f7" stroke-width="2"/>
+    <circle cx="16" cy="18" r="3" fill="#a855f7" filter="url(#glow-purple)"/>
+    <text x="28" y="22" fill="#e9d5ff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="600" letter-spacing="0.10em">CLAUDE</text>
+    <text x="16" y="44" fill="#ffffff" font-size="12">Returns text answer</text>
+    <text x="16" y="54" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10">"Weather in HCMC..."</text>
+  </g>
+
+  <text x="440" y="408" text-anchor="middle" fill="#475569" font-size="10" font-family="ui-monospace, SFMono-Regular, monospace" letter-spacing="0.08em">04 / TOOLS-AGENTS · TOOL-CALLING</text>
+</svg>

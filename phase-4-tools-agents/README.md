@@ -6,6 +6,8 @@
 
 ### - [ ] Tool / function calling
 
+![Tool calling sequence](../assets/phase-4/01-tool-calling-sequence.svg)
+
 Bạn define một list tools (mỗi tool có `name` + `description` + `input_schema`), gửi cùng request. Claude trả về `tool_use` block với `input` args nếu nó muốn gọi tool. **Bạn execute tool**, gửi `tool_result` lại, Claude tiếp tục reasoning.
 
 **Tại sao matter:** Đây là cách Claude tương tác với thế giới ngoài. Không có tool: Claude chỉ generate text. Có tool: Claude truy vấn DB, gọi API, đọc file, gửi email — bất cứ gì code của bạn handle được.
@@ -61,6 +63,8 @@ Define nhiều tools cùng lúc, Claude tự chọn cái nào (hoặc nhiều c�
 ---
 
 ### - [ ] Agentic loop
+
+![Agentic loop](../assets/phase-4/02-agentic-loop.svg)
 
 Loop: API call → Claude trả `tool_use` → execute tool → `tool_result` back → API call → ... cho tới `stop_reason == "end_turn"`. Đây là engine của mọi agent.
 
