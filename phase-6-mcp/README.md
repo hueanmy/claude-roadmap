@@ -6,6 +6,8 @@
 
 ### - [ ] MCP architecture
 
+![MCP architecture — clients to servers](../assets/phase-6/01-mcp-architecture.svg)
+
 Pattern client-server: **MCP client** (Claude Code, Claude Desktop, Cursor, Zed...) ↔ **MCP server** (database, GitHub, Linear, Postgres...). Communicate qua JSON-RPC. Server expose 3 primitives: **Tools** (function callable), **Resources** (data readable), **Prompts** (template).
 
 **Tại sao matter:** Hiểu architecture giúp bạn debug khi MCP not working — biết check phía nào (client config? server crash? schema mismatch?). Cũng giúp bạn quyết định khi nào build server mới vs dùng cái có sẵn.
@@ -89,6 +91,8 @@ Claude Code support MCP built-in. Add server vào `.mcp.json` → restart Claude
 ---
 
 ### - [ ] Stdio vs Streamable HTTP transport
+
+![Stdio vs HTTP transport](../assets/phase-6/02-stdio-vs-http.svg)
 
 **Stdio** (subprocess): client spawn server local, communicate qua stdin/stdout. **Streamable HTTP** (remote): server chạy sẵn ở URL, client connect qua HTTPS với streaming response.
 
