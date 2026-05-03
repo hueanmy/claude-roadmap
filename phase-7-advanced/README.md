@@ -6,6 +6,8 @@
 
 ### - [ ] Agent Teams
 
+![Agent teams — orchestrator + specialists](../assets/phase-7/01-agent-teams.svg)
+
 Pattern: orchestrator agent điều phối nhiều specialist agents. Mỗi specialist có scope hẹp + tool surface riêng. Orchestrator handle: task decomposition, routing, result synthesis.
 
 **Tại sao matter:** Single agent với 30 tools confuse — Claude khó pick tool đúng, system prompt phình to. Split: orchestrator chỉ biết về 5 specialists, mỗi specialist 5-7 tools. Total 30 tools nhưng Claude từng layer chỉ thấy 5-7.
@@ -42,6 +44,8 @@ Cách agents talk to each other:
 ---
 
 ### - [ ] Evals & testing
+
+![Evals pipeline](../assets/phase-7/02-evals-pipeline.svg)
 
 Đánh giá output Claude tự động: golden dataset (input + expected criteria) + LLM judge (model mạnh hơn grade output). Critical cho regression test khi thay model/prompt.
 
