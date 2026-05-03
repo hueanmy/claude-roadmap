@@ -1,0 +1,16 @@
+{
+  "_comment": "Drop this in .claude/settings.json (project) or ~/.claude/settings.json (global). Auto-runs ruff format after Claude edits any .py file.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ \"${TOOL_INPUT_FILE_PATH##*.}\" = \"py\" ]; then uv run ruff format \"$TOOL_INPUT_FILE_PATH\" 2>/dev/null; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

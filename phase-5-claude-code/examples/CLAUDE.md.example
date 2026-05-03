@@ -1,0 +1,41 @@
+# Project — CLAUDE.md
+
+> Rename this file to `CLAUDE.md` (drop the `.example`) at your repo root.
+> Claude Code auto-loads it on every session start.
+
+## What this project is
+
+[1-2 sentence description so Claude has context immediately.]
+
+## Tech stack
+
+- Python 3.11+, managed with `uv`
+- FastAPI for HTTP, SQLAlchemy + Postgres for storage
+- Tests: pytest. Linting: ruff. Type-checking: pyright
+
+## Conventions
+
+- Import order: stdlib → third-party → local. Ruff enforces.
+- Functions: type hints required. `from __future__ import annotations` at top of every file.
+- Tests live in `tests/` mirroring `src/` layout.
+- No print statements in app code — use `logging`.
+
+## Commands you'll run often
+
+- `uv run pytest` — run tests
+- `uv run ruff check --fix && uv run ruff format` — lint + format
+- `uv run pyright` — type check
+- `make migrate` — apply pending DB migrations
+
+## Things to NOT do
+
+- Don't add new dependencies without asking.
+- Don't bypass type errors with `# type: ignore` — fix the type.
+- Don't write tests against the real DB — use the `db_session` fixture.
+
+## Where things live
+
+- Business logic: `src/services/`
+- HTTP handlers: `src/api/routes/`
+- DB models: `src/models/`
+- Migrations: `alembic/versions/`

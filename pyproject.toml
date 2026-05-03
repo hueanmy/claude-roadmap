@@ -1,0 +1,19 @@
+[project]
+name = "claude-roadmap"
+version = "0.1.0"
+description = "Hands-on roadmap for learning Claude — from API basics to MCP and production agents."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "anthropic>=0.50.0",
+    "python-dotenv>=1.0.0",
+]
+
+[dependency-groups]
+mcp = ["mcp>=1.0.0"]
+vision = ["pillow>=10.0.0"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
