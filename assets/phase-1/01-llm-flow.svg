@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 240" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#5eead4" stop-opacity="0.04"/>
+    </linearGradient>
+    <marker id="arr-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#5eead4"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#a78bfa"/>
+    </marker>
+    <marker id="arr-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#f472b6"/>
+    </marker>
+  </defs>
+
+  <rect x="30" y="70" width="200" height="90" rx="14" fill="url(#g1)" stroke="#5eead4" stroke-width="1.4"/>
+  <text x="130" y="108" text-anchor="middle" fill="#e6edf3" font-size="16" font-weight="600">Your app</text>
+  <text x="130" y="130" text-anchor="middle" fill="#94a3b8" font-size="11">stateless caller</text>
+
+  <rect x="310" y="70" width="200" height="90" rx="14" fill="url(#g2)" stroke="#a78bfa" stroke-width="1.4"/>
+  <text x="410" y="108" text-anchor="middle" fill="#e6edf3" font-size="16" font-weight="600">Anthropic API</text>
+  <text x="410" y="130" text-anchor="middle" fill="#94a3b8" font-size="11">/v1/messages</text>
+
+  <rect x="590" y="70" width="200" height="90" rx="14" fill="url(#g3)" stroke="#f472b6" stroke-width="1.4"/>
+  <text x="690" y="108" text-anchor="middle" fill="#e6edf3" font-size="16" font-weight="600">Claude</text>
+  <text x="690" y="130" text-anchor="middle" fill="#94a3b8" font-size="11">next-token loop</text>
+
+  <path d="M230,100 L310,100" stroke="#5eead4" stroke-width="1.5" marker-end="url(#arr-cyan)" fill="none"/>
+  <path d="M510,100 L590,100" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arr-purple)" fill="none"/>
+  <path d="M590,130 L510,130" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-pink)" fill="none"/>
+  <path d="M310,130 L230,130" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-purple)" fill="none"/>
+
+  <text x="270" y="92" text-anchor="middle" fill="#94a3b8" font-size="10.5">prompt + history</text>
+  <text x="550" y="92" text-anchor="middle" fill="#94a3b8" font-size="10.5">tokenize</text>
+  <text x="550" y="148" text-anchor="middle" fill="#94a3b8" font-size="10.5">tokens (stream)</text>
+  <text x="270" y="148" text-anchor="middle" fill="#94a3b8" font-size="10.5">response</text>
+
+  <text x="410" y="210" text-anchor="middle" fill="#64748b" font-size="11.5" font-style="italic">
+    Stateless — every request resends the full conversation history
+  </text>
+
+  <circle cx="38" cy="40" r="3" fill="#5eead4" opacity="0.6"/>
+  <text x="48" y="44" fill="#5eead4" font-size="10.5" font-family="ui-monospace, SFMono-Regular, monospace" letter-spacing="0.05em">01 / FOUNDATION</text>
+</svg>

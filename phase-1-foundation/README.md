@@ -6,21 +6,7 @@
 
 ### - [ ] How LLMs work
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant App as Your app
-    participant API as Anthropic API
-    participant Claude
-
-    App->>API: full history + new prompt
-    API->>Claude: tokenize input
-    loop until stop token
-        Claude-->>API: next token (prob distribution)
-    end
-    API-->>App: assembled response
-    Note over App,API: Stateless — next request<br/>must resend full history
-```
+![How LLMs work — token flow](../assets/phase-1/01-llm-flow.svg)
 
 Claude (và mọi LLM hiện đại) là **next-token predictor** — input một chuỗi token, output xác suất cho token tiếp theo, lặp lại cho tới khi gặp stop token. Không có "trí nhớ" ngầm giữa các API call: mỗi request là một function call stateless, bạn phải gửi lại toàn bộ lịch sử hội thoại mỗi lần.
 
